@@ -11,6 +11,15 @@ function App() {
     setColor(`#${Math.floor(Math.random() * 16777215).toString(16)}`);
   }, [count]);
 
+  useEffect(() => {
+    if (textHead == "Bye World!") {
+      setTextHead("Hello World!");
+    }
+    if (textHead == "Hello World!") {
+      setTextHead("Bye World!");
+    }
+  }, [count]);
+
   return (
     <>
       <div className="card">
