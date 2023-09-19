@@ -1,13 +1,20 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./App.css";
+import ByeWorld from "./components/ByeWorld";
 
 function App() {
   const [count, setCount] = useState(0);
+  const [textHead, setTextHead] = useState("Bye World!");
+  const [color, setColor] = useState("white");
+
+  useEffect(() => {
+    setColor(`#${Math.floor(Math.random() * 16777215).toString(16)}`);
+  }, [count]);
 
   return (
     <>
-      <h1>Bye World!</h1>
       <div className="card">
+        <ByeWorld text={textHead} color={color} />
         <button onClick={() => setCount((count) => count + 1)}>
           count is {count}
         </button>
